@@ -22,6 +22,7 @@ namespace SnelStart.B2B.Client
         IInkoopboekingenOperations Inkoopboekingen { get; }
         IRelatieInkoopboekingenOperations RelatieInkoopboekingen { get; }
         IInkoopBoekingBijlagesOperations InkoopboekingBijlages { get; }
+        IRelatieBijlagesOperations RelatieBijlages { get; }
 
         Task AuthorizeAsync();
         Task AuthorizeAsync(CancellationToken cancellationToken);

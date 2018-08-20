@@ -27,6 +27,7 @@ namespace SnelStart.B2B.Client
         public IInkoopboekingenOperations Inkoopboekingen { get; }
         public IRelatieInkoopboekingenOperations RelatieInkoopboekingen { get; }
         public IInkoopBoekingBijlagesOperations InkoopboekingBijlages { get; }
+        public IRelatieBijlagesOperations RelatieBijlages { get; }
 
         public B2BClient(Config config)
         {
@@ -54,6 +55,7 @@ namespace SnelStart.B2B.Client
             Inkoopboekingen = new InkoopboekingenOperations(_clientState);
             RelatieInkoopboekingen = new RelatieInkoopboekingenOperations(_clientState);
             InkoopboekingBijlages = new InkoopBoekingBijlagesOperations(_clientState);
+            RelatieBijlages = new RelatieBijlagesOperations(_clientState);
         }
 
         private static void ConfigureServicePointManager(Config config)
