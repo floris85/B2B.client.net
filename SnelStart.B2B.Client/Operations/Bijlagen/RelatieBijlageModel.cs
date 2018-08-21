@@ -27,7 +27,7 @@ namespace SnelStart.B2B.Client.Operations
         }
 
         /// <summary>
-        /// De public identifier van de gekoppelde inkoopboeking.
+        /// De public identifier van de gekoppelde relatie.
         /// </summary>
         public Guid RelatieId { get; set; }
 
