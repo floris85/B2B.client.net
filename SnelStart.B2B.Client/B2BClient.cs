@@ -1,14 +1,14 @@
-﻿using System;
+﻿using SnelStart.B2B.Client.Operations;
+using System;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using SnelStart.B2B.Client.Operations;
 
 namespace SnelStart.B2B.Client
 {
     public class B2BClient : IB2BClient
     {
-        private readonly ClientState _clientState;
+        readonly ClientState _clientState;
 
         public string AccessToken => _clientState.AccessToken;
 
@@ -28,6 +28,9 @@ namespace SnelStart.B2B.Client
         public IRelatieInkoopboekingenOperations RelatieInkoopboekingen { get; }
         public IInkoopBoekingBijlagesOperations InkoopboekingBijlages { get; }
         public IRelatieBijlagesOperations RelatieBijlages { get; }
+        public IArtikelomzetgroepenOperations Artikelomzetgroepen { get; }
+        public IArtikelenOperations Artikelen { get; }
+        public IVerkoopordersOperations Verkooporders { get; }
 
         public B2BClient(Config config)
         {
@@ -56,9 +59,12 @@ namespace SnelStart.B2B.Client
             RelatieInkoopboekingen = new RelatieInkoopboekingenOperations(_clientState);
             InkoopboekingBijlages = new InkoopBoekingBijlagesOperations(_clientState);
             RelatieBijlages = new RelatieBijlagesOperations(_clientState);
+            Artikelomzetgroepen = new ArtikelomzetgroepenOperations(_clientState);
+            Artikelen = new ArtikelenOperations(_clientState);
+            Verkooporders = new VerkoopordersOperations(_clientState);
         }
 
-        private static void ConfigureServicePointManager(Config config)
+        static void ConfigureServicePointManager(Config config)
         {
             ServicePointManager.FindServicePoint(config.AuthUri).ConnectionLeaseTimeout = config.ConnectionLeaseTimeoutInMilliseconds;
             ServicePointManager.FindServicePoint(config.ApiBaseUriVersioned).ConnectionLeaseTimeout = config.ConnectionLeaseTimeoutInMilliseconds;
@@ -71,7 +77,7 @@ namespace SnelStart.B2B.Client
 
         public void Dispose()
         {
-            
+
         }
 
         public async Task AuthorizeAsync()
