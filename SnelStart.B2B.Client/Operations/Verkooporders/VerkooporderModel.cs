@@ -80,7 +80,7 @@ namespace SnelStart.B2B.Client.Operations
         /// Btw-ingavesoort voor deze order.
         /// Indien niet opgegeven, wordt Exclusief gehanteerd.
         /// </summary>
-        public VerkooporderBtwIngaveModel? VerkooporderBtwIngaveModel { get; set; } = Operations.VerkooporderBtwIngaveModel.Exclusief;
+        public string VerkooporderBtwIngaveModel { get; set; } = Operations.VerkooporderBtwIngaveModel.Exclusief.ToString();
 
         /// <summary>
         /// Kostenplaats
