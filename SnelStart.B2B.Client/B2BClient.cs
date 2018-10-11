@@ -8,7 +8,7 @@ namespace SnelStart.B2B.Client
 {
     public class B2BClient : IB2BClient
     {
-        readonly ClientState _clientState;
+        private readonly ClientState _clientState;
 
         public string AccessToken => _clientState.AccessToken;
 
@@ -64,7 +64,7 @@ namespace SnelStart.B2B.Client
             Verkooporders = new VerkoopordersOperations(_clientState);
         }
 
-        static void ConfigureServicePointManager(Config config)
+        private static void ConfigureServicePointManager(Config config)
         {
             ServicePointManager.FindServicePoint(config.AuthUri).ConnectionLeaseTimeout = config.ConnectionLeaseTimeoutInMilliseconds;
             ServicePointManager.FindServicePoint(config.ApiBaseUriVersioned).ConnectionLeaseTimeout = config.ConnectionLeaseTimeoutInMilliseconds;
