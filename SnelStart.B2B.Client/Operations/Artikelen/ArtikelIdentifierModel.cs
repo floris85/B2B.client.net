@@ -1,7 +1,7 @@
 ﻿namespace SnelStart.B2B.Client.Operations
 {
     /// <summary>
-    /// De gegevenscontainer voor een relatie.
+    /// De gegevenscontainer voor een Artikel.
     /// </summary>
     public class ArtikelIdentifierModel : IdentifierModel
     {
